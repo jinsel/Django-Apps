@@ -1,0 +1,31 @@
+{% extends 'todoapp/base.html'%} {% block content %}
+<div class="center-column">
+  <h1 class="mt-3">Todo List 📃</h1>
+  <form action="/" method="POST" class="mt-3 mb-2">
+    {%csrf_token%} {{form.text}}
+    <button class="btn btn-info mb-5 mt-2" type="submit" name="submit">
+      Submit
+    </button>
+  </form>
+
+  <div class="list-update">
+    {%for task in tasks %}
+    <div class="items">
+      <a class="btn btn-sm btn-primary mb-2" href="{% url 'update' task.id%}"
+        >Update</a
+      >
+      <a
+        class="btn btn-sm btn-danger mb-2 mr-5 ml-2"
+        href="{% url 'delete' task.id%}"
+        >Delete</a
+      >
+      {%if task.complete == True%}
+      <strike>{{task}}</strike>
+      {%else%}
+      <span>{{task}}</span>
+      {%endif%}
+    </div>
+    {%endfor%}
+  </div>
+</div>
+{% endblock %}

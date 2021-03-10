@@ -1,0 +1,13 @@
+{% extends 'todoapp/base.html'%} {% block content %}
+
+<p class="h4 mt-5 mb-3">
+  Did you complete this <strong>"{{item}}" </strong> task?
+</p>
+<a href="{%url 'index'%}">Cancel</a>
+<form action="" method="POST">
+  {%csrf_token%}
+  <button class="btn btn-danger mb-5 mt-2" type="submit" name="submit">
+    Delete
+  </button>
+</form>
+{% endblock %}

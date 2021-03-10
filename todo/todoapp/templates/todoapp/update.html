@@ -1,0 +1,10 @@
+{% extends 'todoapp/base.html'%} {% block content %}
+
+<h3 class="mt-5 mb-3">Update</h3>
+<form action="" method="POST">
+  {%csrf_token%} {{form}}
+  <button class="btn btn-info mb-5 mt-2" type="submit" name="submit">
+    Submit
+  </button>
+</form>
+{% endblock %}
